@@ -13,13 +13,4 @@ require "./beanstalkcr/src"
 
 beanstalk = Beanstalk.new
 beanstalk.put("foo")
-
-
-
-## Installation
-
-Project is not finished yet. You could download and test this package  by requiring the package folder.
-
-
-
-## Required Crystal Version
+```
