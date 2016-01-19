@@ -1,4 +1,4 @@
-**Warning** This project is under development and not finished. All contributions or suggestions are welcome. 
+**Warning** This project is my first project with crystal to understand the basics of crystal and still under development.All contributions or suggestions are welcome. 
 
 Beanstalk Client for Crystal
 ========================
