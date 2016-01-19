@@ -9,7 +9,7 @@ A [Beanstalkd](http://kr.github.io/beanstalkd/) client for the [Crystal](http://
 ## Usage
 
 ```crystal
-require "beanstalk"
+require "./beanstalkcr/src"
 
 beanstalk = Beanstalk.new
 beanstalk.put("foo")
@@ -18,18 +18,8 @@ beanstalk.put("foo")
 
 ## Installation
 
-```crystal
-dependencies:
-  beanstalk:
-    github: hasantayyar/beanstalkcr
-    version: ~> 0.0.1
-```
+Project is not finished yet. You could download and test this package  by requiring the package folder.
 
-and then install the library into your project:
-
-```bash
-$ crystal deps
-```
 
 
 ## Required Crystal Version
