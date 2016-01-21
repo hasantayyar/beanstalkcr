@@ -47,7 +47,7 @@ class Beanstalk::Connection
 
   def receive
     line = get_line
-    len = line.to_i
+    len = line.bytesize
     return nil if len == -1
     bulk_string = String.new(len) do |buff|
       @socket.read_fully(Slice.new(buff, len))
