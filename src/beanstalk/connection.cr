@@ -46,29 +46,17 @@ class Beanstalk::Connection
   end
 
   def receive
-    line = get_line
-    len = line.bytesize
-    return nil if len == -1
-    bulk_string = String.new(len) do |buff|
-      @socket.read_fully(Slice.new(buff, len))
-      {len, 0}
-    end
-    # Ignore CR/LF
-    @socket.skip(2)
-    bulk_string
-    # if type == nil
-    #  raise Beanstalk::Error.new("Received nil type string")
-    # else
-    #  raise Beanstalk::Error.new("Cannot parse response with type #{type}: #{line.inspect}")
-    # end
-    # raise Beanstalk::Error.new(line)
-  end
-
-  def get_line
-    line = @socket.gets
+    line = ""
+    # get last line as output
+    line1 = @socket.gets
+    line2 = @socket.gets
+    line = line2 != nil ? line2 : line1
     unless line
       raise Beanstalk::Error.new("Disconnected")
     end
-    line.byte_slice(0, line.bytesize - 2)
+    trimmed = line.byte_slice(0, line.bytesize - 2)
+    # Ignore CR/LF
+    @socket.skip(2)
+    trimmed
   end
 end

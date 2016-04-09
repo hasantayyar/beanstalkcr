@@ -1,6 +1,10 @@
 require "./src/*"
 
 beanstalk = Beanstalk.new(host: "localhost", port: 11300)
-beanstalk.use("demo")
-o = beanstalk.put("foo")
-puts o
+puts "using demo"
+# beanstalk.use("demo")
+# puts "put a job `foo`"
+# beanstalk.put("foo")
+puts "reserve a job"
+s = beanstalk.reserve
+# puts s

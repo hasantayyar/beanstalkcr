@@ -15,9 +15,10 @@ class Beanstalk
       q << body.size.to_s
       q << "\r\n"
       q << body.to_s
-      q << "\r\n"
+      q << ""
       s = q.join("")
-      s_command(s)
+      puts s
+      return s_command(s)
     end
 
     def stats
@@ -31,7 +32,15 @@ class Beanstalk
     # beanstalk.use("foo-tube")
     # ```
     def use(name)
-      s_command("use " + name.to_s)
+      return s_command("use " + name.to_s)
+    end
+
+    def watch(name)
+      return s_command("watch " + name.to_s)
+    end
+
+    def reserve
+      return s_command("reserve")
     end
 
     def quit
